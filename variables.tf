@@ -37,14 +37,14 @@ variable "r53_domains" {
 }
 
 variable "buckets" {
-  type = map(string)
-  default = {}
+  type = list(string)
+  default = []
   description = <<EOF
-    A Map of bucketName=key
+    A List of bucketName.key
     ```
-      buckets = {
-        bcr-secrets = terraform/my-secret
-      }
+      buckets = [
+        bcr-secrets.terraform/my-secret
+      ]
     ```
 EOF
 }
