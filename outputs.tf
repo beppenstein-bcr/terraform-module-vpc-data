@@ -105,6 +105,16 @@ output "public_route_tables" {
   sensitive = true
 }
 
+output "public_cidr_blocks" {
+  value = local.public_cidr_blocks
+  description = "A set(string) of public cidr blocks"
+}
+
+output "private_cidr_blocks" {
+  value = local.private_cidr_blocks
+  description = "A set(string) of public cidr blocks"
+}
+
 output "security_group_ids" {
   value = data.aws_security_groups.sgs.ids
   description = <<EOF

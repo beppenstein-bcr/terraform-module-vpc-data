@@ -31,4 +31,16 @@ locals {
     for s in data.aws_route_table.public_subnet_routing_tables : s.id
   ])
 
+  private_cidr_blocks = toset([
+    for s in data.aws_subnet.subnets : s.cidr_block
+      if !s.map_public_ip_on_launch && length(regexall(var.private_subnet_regex, s.tags["Name"])) > 0
+          ]
+  )
+
+  public_cidr_blocks = toset([
+    for s in data.aws_subnet.subnets : s.cidr_block
+      if s.map_public_ip_on_launch || length(regexall(var.public_subnet_regex, s.tags["Name"])) > 0
+    ]
+  )
+
 }
