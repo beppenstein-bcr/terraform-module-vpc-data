@@ -37,6 +37,7 @@ variable "r53_domains" {
 }
 
 variable "buckets" {
+  type = map(string)
   default = {}
   description = <<EOF
     A Map of bucketName=key
