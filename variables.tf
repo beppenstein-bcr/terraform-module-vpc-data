@@ -30,7 +30,20 @@ variable "private_subnet_regex" {
   EOF
 }
 
-variable "r53_domain" {
-  default = ""
-  description = "The DNS Domain to get ZoneID for"
+variable "r53_domains" {
+  type = list(string)
+  default = []
+  description = "The DNS Domains to get ZoneIDs for"
+}
+
+variable "buckets" {
+  default = {}
+  description = <<EOF
+    A Map of bucketName=key
+    ```
+      buckets = {
+        bcr-secrets = terraform/my-secret
+      }
+    ```
+EOF
 }

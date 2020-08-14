@@ -1,4 +1,5 @@
 
-data "aws_route53_zone" "zone" {
-  name         = var.r53_domain
+data "aws_route53_zone" "zones" {
+  for_each = toset(var.r53_domains)
+  name  = each.value
 }

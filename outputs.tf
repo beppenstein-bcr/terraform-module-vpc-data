@@ -129,6 +129,11 @@ output "azl2_ami_id" {
 }
 
 output "route53_zone_id" {
-  value = data.aws_route53_zone.zone.zone_id
+  value = data.aws_route53_zone.zones
+  sensitive = true
+}
+
+output "buckets" {
+  value = data.aws_s3_bucket_object.buckets
   sensitive = true
 }
