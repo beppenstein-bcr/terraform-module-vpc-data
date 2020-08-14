@@ -29,6 +29,6 @@ data "aws_security_groups" "sgs" {
 }
 
 data "aws_security_group" "security_groups" {
-  for_each = data.aws_security_groups.sgs.ids
+  for_each = tolist(data.aws_security_groups.sgs.ids)
   id = each.key
 }
