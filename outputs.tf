@@ -121,3 +121,14 @@ output "security_groups" {
   EOF
   sensitive = true
 }
+
+output "azl2_ami_id" {
+  value = data.aws_ami.amazon_linux_2.id
+  description = "The latest Amazon Linux2 AMI ID"
+  sensitive = true
+}
+
+output "route53_zone_id" {
+  value = data.aws_route53_zone.zone.zone_id
+  sensitive = true
+}

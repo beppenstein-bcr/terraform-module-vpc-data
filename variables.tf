@@ -29,3 +29,8 @@ variable "private_subnet_regex" {
     `if s.map_public_ip_on_launch && regexall(var.public_subnet_regex, s.tags["Name"])`
   EOF
 }
+
+variable "r53_domain" {
+  default = ""
+  description = "The DNS Domain to get ZoneID for"
+}
