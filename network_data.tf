@@ -21,7 +21,12 @@ data "aws_route_table" "public_subnet_routing_tables" {
   subnet_id = each.key
 }
 
-data "aws_security_groups" "sgs" {}
+data "aws_security_groups" "sgs" {
+  filter {
+    name   = "vpc-id"
+    values = [local.vpc_id]
+  }
+}
 
 data "aws_security_group" "security_groups" {
   for_each = data.aws_security_groups.sgs.ids
