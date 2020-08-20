@@ -30,7 +30,7 @@
 | public\_route\_table\_ids | This is a set(string) which can be used of for\_each loops on resources<br>    To use these as a list you must convert from type set to type list with tolist() |
 | public\_route\_tables | Type: Map of Maps - A map of all public route\_table data [Terraform Doc](https://www.terraform.io/docs/providers/aws/d/route_table.html) |
 | public\_subnet\_ids | This is a set(string) which can be used of for\_each loops on resources<br>    To use these as a list you must convert from type set to type list with tolist() |
-| route53\_zone\_id | n/a |
+| route53\_zones | n/a |
 | route\_table\_ids | This is a set(string) which can be used of for\_each loops on resources<br>    To use these as a list you must convert from type set to type list with tolist() |
 | security\_group\_ids | This is a set(string) which can be used of for\_each loops on resources<br>    To use these as a list you must convert from type set to type list with tolist() |
 | security\_groups | Type: Map of Maps - A map of all public route\_table data [Terraform Doc](https://www.terraform.io/docs/providers/aws/d/security_group.html) |
