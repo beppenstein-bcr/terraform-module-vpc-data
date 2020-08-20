@@ -138,7 +138,7 @@ output "azl2_ami_id" {
   sensitive = true
 }
 
-output "route53_zone_id" {
+output "route53_zones" {
   value = data.aws_route53_zone.zones
   sensitive = true
 }
