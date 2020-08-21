@@ -147,3 +147,8 @@ output "buckets" {
   value = data.aws_s3_bucket_object.buckets
   sensitive = true
 }
+
+output "certs" {
+  value = data.aws_acm_certificate.certs
+  sensitive = true
+}
