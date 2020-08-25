@@ -8,12 +8,12 @@ locals {
 
   public_subnet_ids = [
     for s in data.aws_subnet.subnets : s.id
-          if s.map_public_ip_on_launch && length(regexall(var.public_subnet_regex, s.tags["Name"])) > 0
+          if s.map_public_ip_on_launch || length(regexall(var.public_subnet_regex, s.tags["Name"])) > 0
   ]
 
   private_database_subnet_ids = [
     for s in data.aws_subnet.subnets : s.id
-          if length(regexall(var.db_subnet_regex, s.tags["Name"])) > 0 && !s.map_public_ip_on_launch
+          if length(regexall(var.db_subnet_regex, s.tags["Name"])) > 0 || !s.map_public_ip_on_launch
   ]
 
   public_database_subnet_ids = [
