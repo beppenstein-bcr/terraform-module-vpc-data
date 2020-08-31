@@ -43,4 +43,8 @@ locals {
     ]
   )
 
+  transitive_gateway_ids = toset([
+    for t in data.aws_ec2_transit_gateway.tgws : t.id
+  ])
+
 }

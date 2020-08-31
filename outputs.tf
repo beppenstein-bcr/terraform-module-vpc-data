@@ -152,3 +152,11 @@ output "certs" {
   value = data.aws_acm_certificate.certs
   sensitive = true
 }
+
+output "transitive_gateways" {
+  value = data.aws_ec2_transit_gateway.tgws
+}
+
+output "transitive_gateway_rtbs" {
+  value = data.aws_ec2_transit_gateway_route_table.tgw_rtbs
+}
