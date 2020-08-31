@@ -155,8 +155,18 @@ output "certs" {
 
 output "transitive_gateways" {
   value = data.aws_ec2_transit_gateway.tgws
+  sensitive = true
+}
+
+output "transitive_gateway_ids" {
+  value = local.transitive_gateway_ids
+}
+
+output "transitive_rtb_ids" {
+  value = local.transitive_rtb_ids
 }
 
 output "transitive_gateway_rtbs" {
   value = data.aws_ec2_transit_gateway_route_table.tgw_rtbs
+  sensitive = true
 }
