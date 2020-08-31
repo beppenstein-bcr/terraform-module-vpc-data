@@ -8,7 +8,7 @@ locals {
 
   public_subnet_ids = [
     for s in data.aws_subnet.subnets : s.id
-          if s.map_public_ip_on_launch && length(regexall(var.public_subnet_regex, s.tags["Name"])) > 0
+          if s.map_public_ip_on_launch || length(regexall(var.public_subnet_regex, s.tags["Name"])) > 0
   ]
 
   private_database_subnet_ids = [
@@ -46,5 +46,4 @@ locals {
   transitive_gateway_ids = toset([
     for t in data.aws_ec2_transit_gateway.tgws : t.id
   ])
-
 }
