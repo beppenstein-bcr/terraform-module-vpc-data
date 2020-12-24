@@ -135,22 +135,22 @@ output "security_groups" {
 output "azl2_ami_id" {
   value = data.aws_ami.amazon_linux_2.id
   description = "The latest Amazon Linux2 AMI ID"
-  sensitive = true
+  sensitive = false
 }
 
 output "route53_zones" {
   value = data.aws_route53_zone.zones
-  sensitive = true
+  sensitive = false
 }
 
 output "buckets" {
   value = data.aws_s3_bucket_object.buckets
-  sensitive = true
+  sensitive = false
 }
 
 output "certs" {
   value = data.aws_acm_certificate.certs
-  sensitive = true
+  sensitive = false
 }
 
 output "transitive_gateways" {
